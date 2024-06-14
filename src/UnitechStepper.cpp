@@ -76,7 +76,7 @@
  */
 
 #include "Arduino.h"
-#include "Stepper.h"
+#include "UnitechStepper.h"
 
 /*
  * two-wire constructor.
@@ -181,9 +181,9 @@ void Stepper::setSpeed(long whatSpeed)
  * Moves the motor steps_to_move steps.  If the number is negative,
  * the motor moves in the reverse direction.
  */
-void Stepper::step(int steps_to_move)
+void Stepper::step(long steps_to_move)
 {
-  int steps_left = abs(steps_to_move);  // how many steps to take
+  long steps_left = abs(steps_to_move);  // how many steps to take
 
   // determine direction based on whether steps_to_mode is + or -:
   if (steps_to_move > 0) { this->direction = 1; }
